@@ -22,5 +22,21 @@ namespace BankTest
             Assert.AreEqual(guthaben, k.Guthaben);
         }
 
+        [TestMethod]
+        public void Einzahlen_GuthabenEinzahlen()
+        {
+            //arrange 
+            int startwert = 100;
+            Konto test = new Konto(startwert);
+
+            //act
+            int einzahlWert = 420;
+            test.Einzahlen(einzahlWert);
+
+            //assert
+            Assert.AreEqual(520, test.Guthaben);
+
+        }
+
     }
 }
