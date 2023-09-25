@@ -5,22 +5,24 @@ namespace BankTest
     [TestClass]
     public class KontoTests
     {
+       
         [TestMethod]
-        [DataRow(0)]
-        [DataRow(1)]
-        [DataRow(10)]
-        public void Konto_KannErstelltWerden(int value)
+        public void Konto_KannErstelltWerden()
         {
             // Arrange
-            int guthaben = value;
+            int einzahlen = 20;
+            int startwert = 40;
+            Konto k = new Konto(startwert);
 
             // Act
-            Konto k = new Konto(guthaben);
+            k.Einzahlen(einzahlen);
+
 
 
             // Assert
-            Assert.AreEqual(guthaben, k.Guthaben);
+            Assert.AreEqual(startwert + einzahlen, k.Guthaben);
         }
+
 
     }
 }
